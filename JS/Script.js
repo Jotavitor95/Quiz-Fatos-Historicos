@@ -49,7 +49,10 @@ while (total_questoes > questoes.length){
     total_questoes = readlineSync.questionInt("Digite a quantidade de questoes (Max 30): ");        
 }
 
-questoes.filter(Math.random).slice(0, total_questoes).forEach((questao) => {
+let questoesEmbaralhadas = questoes.sort(() => Math.random() - 0.5);
+let questoesSelecionadas = questoesEmbaralhadas.slice(0, total_questoes);
+
+questoesSelecionadas.forEach((questao) => {
     console.log(`Pergunta ${questao.id}: ${questao.pergunta}`);
     let resposta = readlineSync.question("Digite sua resposta: ");
         if (resposta == questao.resposta) {
