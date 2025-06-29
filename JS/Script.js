@@ -49,6 +49,9 @@ while (total_questoes > questoes.length){
     total_questoes = readlineSync.questionInt("Digite a quantidade de questoes (Max 30): ");        
 }
 
+console.log(`Você escolheu responder ${total_questoes}\n\n`);
+console.log("Boa sorte!\n\n")
+
 let questoesEmbaralhadas = questoes.sort(() => Math.random() - 0.5);
 let questoesSelecionadas = questoesEmbaralhadas.slice(0, total_questoes);
 
