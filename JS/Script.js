@@ -42,7 +42,14 @@ let nome = readlineSync.question("Digite seu nome: ");
 
 console.log(`\nOlá ${nome}, vamos começar o quiz!\n`);
 
-questoes.filter(Math.random).slice(0, 10).forEach((questao) => {
+let total_questoes = readlineSync.questionInt("Digite a quantidade de questoes (Max:30): ")
+
+while (total_questoes > questoes.length){
+    console.log("O máximo de questão são 30, por favor, tente novamente.");
+    total_questoes = readlineSync.questionInt("Digite a quantidade de questoes (Max 30): ");        
+}
+
+questoes.filter(Math.random).slice(0, total_questoes).forEach((questao) => {
     console.log(`Pergunta ${questao.id}: ${questao.pergunta}`);
     let resposta = readlineSync.question("Digite sua resposta: ");
         if (resposta == questao.resposta) {
@@ -53,12 +60,16 @@ questoes.filter(Math.random).slice(0, 10).forEach((questao) => {
         };
 });
 
+let pontuacao = `Você acertou ${score} de ${total_questoes}`;
+
 if (score >= 1 && score <= 3){
-    console.log("OH NÃO! Tente mais uma vez.");
+    console.log(`Quiz encerrado!\n\n${pontuacao}`);
 } else if (score >= 4 && score <= 6){
-    console.log("BOM TRABALHO! Pratique um pouco mais.");
+    console.log(`Quiz encerrado!\n\n${pontuacao}`);
 } else if (score >= 7 && score <= 9){
-    console.log("MUITO BOM! Você acertou a maioria.");
+    console.log(`Quiz encerrado!\n\n${pontuacao}`);
 } else if (score >= 10){
-    console.log("EXCELENTE! Você é um verdadeiro expert1");
+    console.log(`Quiz encerrado!\n\n${pontuacao}`);
+} else {
+    console.log(`Quiz encerrado!\n\n${pontuacao}`);
 };
