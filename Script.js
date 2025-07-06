@@ -46,4 +46,3 @@ if (score >= 1 && score <= 3){
     console.log(pontuacao);
 } else {
     console.log(pontuacao);
-}
