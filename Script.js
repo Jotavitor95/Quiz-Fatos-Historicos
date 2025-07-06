@@ -1,6 +1,5 @@
 import readlineSync from "readline-sync";
 import questoes from "./Dados/Dados.js";
-import pokemon from "./Dados/Dados.js";
 
 console.log("\n------- QUIZ FATOS HISTÓRICOS -------\n");
 console.log("Seja bem-vindo jogador(a)!");
